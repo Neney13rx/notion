@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notion Slideshow Widget</title>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+        #slideshow { width: 100%; overflow: hidden; }
+        .slide { display: none; }
+        .active-slide { display: block; }
+        img { width: 100%; }
+    </style>
+</head>
+<body>
+ 
+<div id="slideshow">
+    <div class="slide active-slide">
+        <img src=white_pot.png alt="Slide 1">
+    </div>
+    <div class="slide">
+        <img src=blue_pot.png alt="Slide 2">
+    </div>
+    <!-- Add more slides as needed -->
+</div>
+ 
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+ 
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active-slide');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active-slide');
+    }
+ 
+    setInterval(nextSlide, 5000); // Change slide every 5 seconds
+</script>
+ 
+</body>
+</html>
